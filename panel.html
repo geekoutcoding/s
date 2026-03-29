@@ -28,210 +28,139 @@
 
   .topbar {
     border-bottom: 1px solid var(--border);
-    padding: 0 1.5rem;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--surface);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    padding: 0 1.5rem; height: 52px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--surface); position: sticky; top: 0; z-index: 100;
   }
   .logo { font-family: var(--mono); font-size: 0.85rem; font-weight: 700; color: var(--text); text-decoration: none; }
   .logo span { color: var(--accent); }
   .route-pill {
-    font-family: var(--mono);
-    font-size: 11px;
-    background: rgba(124,110,252,0.12);
-    color: var(--accent);
+    font-family: var(--mono); font-size: 11px;
+    background: var(--accent-dim); color: var(--accent);
     border: 1px solid rgba(124,110,252,0.25);
-    border-radius: 999px;
-    padding: 3px 10px;
-    letter-spacing: 0.06em;
+    border-radius: 999px; padding: 3px 10px; letter-spacing: 0.06em;
   }
   .nav-links { display: flex; gap: 1.2rem; align-items: center; }
-  .nav-links a { font-family: var(--mono); font-size: 11px; color: var(--muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.15s; }
+  .nav-links a { font-family: var(--mono); font-size: 11px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
   .nav-links a:hover { color: var(--text); }
 
-  .layout { display: grid; grid-template-columns: 260px 1fr; min-height: calc(100vh - 52px); }
+  .layout { display: grid; grid-template-columns: 250px 1fr; min-height: calc(100vh - 52px); }
 
   .sidebar {
     border-right: 1px solid var(--border);
     padding: 1.5rem 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    background: var(--surface);
-    overflow-y: auto;
+    display: flex; flex-direction: column; gap: 1.5rem;
+    background: var(--surface); overflow-y: auto;
   }
   .sidebar-title { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
 
   .conn-status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    display: flex; align-items: center; gap: 8px;
     padding: 0.65rem 0.9rem;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 10px;
   }
   .conn-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); transition: background 0.3s; }
   .conn-dot.connected { background: var(--green); box-shadow: 0 0 0 3px rgba(45,204,142,0.15); }
-  .conn-dot.error { background: var(--red); }
   .conn-label { font-family: var(--mono); font-size: 11px; font-weight: 700; }
-  .conn-sub { font-size: 10px; color: var(--muted); margin-left: auto; }
 
   .cmd-list { display: flex; flex-direction: column; gap: 6px; }
   .cmd-btn {
-    font-family: var(--mono);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    padding: 0.6rem 0.9rem;
-    border-radius: 9px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--text);
-    cursor: pointer;
-    text-align: left;
+    font-family: var(--mono); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.04em; padding: 0.6rem 0.9rem;
+    border-radius: 9px; border: 1px solid var(--border);
+    background: transparent; color: var(--text);
+    cursor: pointer; text-align: left;
     transition: border-color 0.15s, background 0.15s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    display: flex; align-items: center; gap: 8px;
   }
   .cmd-btn:hover { border-color: var(--border-hover); background: var(--surface2); }
-  .cmd-btn .cmd-icon { color: var(--accent); font-size: 12px; }
-  .cmd-btn.danger:hover { border-color: rgba(242,107,107,0.4); }
+  .cmd-icon { color: var(--accent); font-size: 12px; }
   .cmd-btn.danger .cmd-icon { color: var(--red); }
   .cmd-btn.success .cmd-icon { color: var(--green); }
 
-  .host-input-wrap { display: flex; flex-direction: column; gap: 6px; }
-  .host-input-label { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.06em; }
-  .host-input {
-    font-family: var(--mono);
-    font-size: 11px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 0.5rem 0.75rem;
-    color: var(--text);
-    outline: none;
-    width: 100%;
+  .s-input {
+    font-family: var(--mono); font-size: 11px;
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 0.5rem 0.75rem;
+    color: var(--text); outline: none; width: 100%;
     transition: border-color 0.15s;
   }
-  .host-input:focus { border-color: var(--accent); }
+  .s-input:focus { border-color: var(--accent); }
+  .s-label { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 5px; display: block; }
 
   .panel-main { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; overflow-y: auto; }
 
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-  }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
   .card-header {
-    padding: 0.9rem 1.2rem;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 0.9rem 1.2rem; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
   }
   .card-title { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
 
   .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    padding: 1.2rem;
-    gap: 1rem;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+    padding: 1.2rem; gap: 1rem;
   }
   .stat { display: flex; flex-direction: column; gap: 4px; }
   .stat-label { font-size: 10px; color: var(--muted); font-family: var(--mono); letter-spacing: 0.06em; }
-  .stat-value { font-family: var(--mono); font-size: 1.15rem; font-weight: 700; }
+  .stat-value { font-family: var(--mono); font-size: 1.1rem; font-weight: 700; }
   .stat-value.green { color: var(--green); }
   .stat-value.amber { color: var(--amber); }
   .stat-value.accent { color: var(--accent); }
 
-  .file-table { width: 100%; }
-  .file-table-row {
+  /* File index table */
+  .fi-row {
     display: grid;
-    grid-template-columns: 1fr 100px;
+    grid-template-columns: 1.5fr 80px 100px 1fr 110px;
     padding: 0.7rem 1.2rem;
     border-bottom: 1px solid var(--border);
     align-items: center;
     transition: background 0.15s;
   }
-  .file-table-row:last-child { border-bottom: none; }
-  .file-table-row:hover { background: var(--surface2); }
-  .file-table-row.header { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
-  .file-name-cell { font-family: var(--mono); font-size: 0.8rem; display: flex; align-items: center; gap: 8px; }
-  .file-ext-badge {
-    font-size: 9px;
-    padding: 2px 5px;
-    border-radius: 4px;
-    background: var(--accent-dim);
-    color: var(--accent);
-  }
-  .file-actions-cell { display: flex; gap: 6px; justify-content: flex-end; }
+  .fi-row:last-child { border-bottom: none; }
+  .fi-row:hover { background: var(--surface2); }
+  .fi-row.header { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+  .fi-name { font-family: var(--mono); font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; gap: 7px; word-break: break-all; }
+  .fi-ext { font-size: 9px; padding: 2px 5px; border-radius: 4px; background: var(--accent-dim); color: var(--accent); flex-shrink: 0; }
+  .fi-meta { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  .fi-link a { font-family: var(--mono); font-size: 11px; color: var(--accent); text-decoration: none; word-break: break-all; }
+  .fi-link a:hover { text-decoration: underline; }
+  .fi-actions { display: flex; gap: 5px; }
   .tbl-btn {
-    font-family: var(--mono);
-    font-size: 10px;
-    padding: 3px 8px;
-    border-radius: 5px;
-    border: 1px solid;
-    cursor: pointer;
-    background: transparent;
-    font-weight: 700;
-    transition: background 0.15s;
+    font-family: var(--mono); font-size: 10px; padding: 3px 7px;
+    border-radius: 5px; border: 1px solid; cursor: pointer;
+    background: transparent; font-weight: 700; transition: background 0.15s;
   }
-  .tbl-serve { border-color: rgba(45,204,142,0.3); color: var(--green); }
-  .tbl-serve:hover { background: rgba(45,204,142,0.1); }
+  .tbl-copy { border-color: rgba(124,110,252,0.3); color: var(--accent); }
+  .tbl-copy:hover { background: rgba(124,110,252,0.1); }
+  .tbl-open { border-color: rgba(45,204,142,0.3); color: var(--green); }
+  .tbl-open:hover { background: rgba(45,204,142,0.1); }
   .tbl-del { border-color: rgba(242,107,107,0.3); color: var(--red); }
   .tbl-del:hover { background: rgba(242,107,107,0.1); }
 
   .empty-row { padding: 2rem; text-align: center; color: var(--muted); font-family: var(--mono); font-size: 11px; }
 
   .terminal {
-    background: #050509;
-    font-family: var(--mono);
-    font-size: 11px;
-    padding: 1rem 1.2rem;
-    max-height: 280px;
-    overflow-y: auto;
-    line-height: 2;
+    background: #050509; font-family: var(--mono); font-size: 11px;
+    padding: 1rem 1.2rem; max-height: 260px; overflow-y: auto; line-height: 2;
   }
   .t-line { display: flex; gap: 1rem; }
   .t-time { color: rgba(124,110,252,0.4); flex-shrink: 0; }
-  .t-msg { }
   .t-msg.ok { color: var(--green); }
   .t-msg.warn { color: var(--amber); }
   .t-msg.err { color: var(--red); }
   .t-msg.info { color: var(--text); }
   .t-msg.dim { color: var(--muted); }
   .t-prompt { display: flex; gap: 8px; padding: 0.5rem 1.2rem; border-top: 1px solid var(--border); align-items: center; }
-  .t-prompt-sym { font-family: var(--mono); font-size: 12px; color: var(--accent); }
-  .t-prompt-input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text);
+  .t-sym { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+  .t-input {
+    flex: 1; background: transparent; border: none; outline: none;
+    font-family: var(--mono); font-size: 11px; color: var(--text);
   }
-  .t-prompt-input::placeholder { color: var(--muted); }
+  .t-input::placeholder { color: var(--muted); }
 
-  .badge-sm {
-    font-size: 9px;
-    padding: 2px 7px;
-    border-radius: 4px;
-    font-family: var(--mono);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-  }
+  .badge { font-size: 9px; padding: 2px 7px; border-radius: 4px; font-family: var(--mono); font-weight: 700; letter-spacing: 0.04em; }
   .badge-ok { background: rgba(45,204,142,0.12); color: var(--green); }
-  .badge-warn { background: rgba(245,166,35,0.12); color: var(--amber); }
-  .badge-err { background: rgba(242,107,107,0.12); color: var(--red); }
 
   .iframe-bridge { display: none; }
 
@@ -262,15 +191,6 @@
       <div class="conn-status">
         <div class="conn-dot" id="conn-dot"></div>
         <span class="conn-label" id="conn-label">Connecting…</span>
-        <span class="conn-sub" id="conn-sub">/host</span>
-      </div>
-    </div>
-
-    <div>
-      <div class="sidebar-title">Host URL</div>
-      <div class="host-input-wrap">
-        <div class="host-input-label">TARGET (same-origin)</div>
-        <input class="host-input" id="host-url-input" value="host.html" readonly>
       </div>
     </div>
 
@@ -279,17 +199,21 @@
       <div class="cmd-list">
         <button class="cmd-btn success" onclick="cmdPing()"><span class="cmd-icon">◎</span> Ping Host</button>
         <button class="cmd-btn" onclick="cmdList()"><span class="cmd-icon">≡</span> List Files</button>
-        <button class="cmd-btn success" onclick="cmdServeSelected()"><span class="cmd-icon">↑</span> Serve Selected</button>
-        <button class="cmd-btn danger" onclick="cmdRemoveSelected()"><span class="cmd-icon">✕</span> Remove Selected</button>
+        <button class="cmd-btn danger" onclick="cmdRemoveSelected()"><span class="cmd-icon">✕</span> Remove File</button>
         <button class="cmd-btn" onclick="cmdClearLog()"><span class="cmd-icon">⊘</span> Clear Log</button>
       </div>
     </div>
 
     <div>
-      <div class="sidebar-title">Quick Command</div>
-      <div class="host-input-wrap">
-        <div class="host-input-label">FILE NAME (for serve/remove)</div>
-        <input class="host-input" id="target-file" placeholder="e.g. image.png">
+      <div class="sidebar-title">Target File</div>
+      <label class="s-label">FILENAME (for remove)</label>
+      <input class="s-input" id="target-file" placeholder="e.g. photo.jpg">
+    </div>
+
+    <div>
+      <div class="sidebar-title">Quick Links</div>
+      <div class="cmd-list">
+        <button class="cmd-btn" onclick="window.open('host.html','_blank')"><span class="cmd-icon">↗</span> Open /host</button>
       </div>
     </div>
   </div>
@@ -299,19 +223,19 @@
     <div class="card">
       <div class="card-header">
         <span class="card-title">// host status</span>
-        <span class="badge-sm badge-ok" id="host-status-badge">ONLINE</span>
+        <span class="badge badge-ok">ONLINE</span>
       </div>
       <div class="stats-grid">
         <div class="stat">
           <span class="stat-label">HOST STATE</span>
-          <span class="stat-value green" id="stat-state">● RUNNING</span>
+          <span class="stat-value green">● RUNNING</span>
         </div>
         <div class="stat">
           <span class="stat-label">FILES ON HOST</span>
           <span class="stat-value accent" id="stat-files">—</span>
         </div>
         <div class="stat">
-          <span class="stat-label">REQUESTS SERVED</span>
+          <span class="stat-label">REQUESTS</span>
           <span class="stat-value amber" id="stat-reqs">—</span>
         </div>
         <div class="stat">
@@ -327,22 +251,24 @@
         <button onclick="cmdList()" style="font-family:var(--mono);font-size:10px;padding:4px 10px;background:transparent;border:1px solid var(--border-hover);border-radius:6px;color:var(--text);cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='transparent'">Refresh ↻</button>
       </div>
       <div id="file-index">
-        <div class="file-table-row header"><span>Filename</span><span style="text-align:right">Actions</span></div>
-        <div class="empty-row" id="file-index-empty">No files listed. Click "List Files" to fetch from host.</div>
+        <div class="fi-row header">
+          <span>Name</span><span>Size</span><span>Expires</span><span>Link</span><span>Actions</span>
+        </div>
+        <div class="empty-row" id="fi-empty">Click "List Files" to fetch from host.</div>
       </div>
     </div>
 
     <div class="card">
       <div class="card-header">
         <span class="card-title">// terminal</span>
-        <span class="badge-sm badge-ok">LIVE</span>
+        <span class="badge badge-ok">LIVE</span>
       </div>
       <div class="terminal" id="terminal">
-        <div class="t-line"><span class="t-time" id="t-boot"></span><span class="t-msg dim">Panel ready. Type a command or use the sidebar.</span></div>
+        <div class="t-line"><span class="t-time" id="t-boot"></span><span class="t-msg dim">Panel ready. Commands appear here.</span></div>
       </div>
       <div class="t-prompt">
-        <span class="t-prompt-sym">❯</span>
-        <input class="t-prompt-input" id="cmd-input" placeholder="ping / list / serve [file] / remove [file]" onkeydown="if(event.key==='Enter')runTyped()">
+        <span class="t-sym">❯</span>
+        <input class="t-input" id="cmd-input" placeholder="ping / list / remove [file]" onkeydown="if(event.key==='Enter')runTyped()">
       </div>
     </div>
 
@@ -353,35 +279,30 @@
   document.getElementById('t-boot').textContent = new Date().toLocaleTimeString();
 
   const iframe = document.getElementById('host-bridge');
-  let hostReady = false;
-  let pendingFiles = [];
-  let selectedFile = null;
+  let ready = false;
 
   function tLog(msg, type='info') {
     const term = document.getElementById('terminal');
-    const line = document.createElement('div');
-    line.className = 't-line';
-    line.innerHTML = `<span class="t-time">${new Date().toLocaleTimeString()}</span><span class="t-msg ${type}">${msg}</span>`;
-    term.appendChild(line);
+    const d = document.createElement('div');
+    d.className = 't-line';
+    d.innerHTML = `<span class="t-time">${new Date().toLocaleTimeString()}</span><span class="t-msg ${type}">${msg}</span>`;
+    term.appendChild(d);
     term.scrollTop = term.scrollHeight;
   }
 
-  function sendCmd(obj) {
-    if (!hostReady) {
-      tLog('Host not ready yet. Retrying…', 'warn');
-      setTimeout(() => sendCmd(obj), 800);
-      return;
-    }
+  function send(obj) {
+    if (!ready) { setTimeout(() => send(obj), 600); return; }
     iframe.contentWindow.postMessage({ source: 'panel', ...obj }, '*');
-    tLog(`→ CMD: ${obj.command}${obj.name ? ' '+obj.name : ''}`, 'dim');
+    tLog(`→ ${obj.command}${obj.name ? ' '+obj.name : ''}`, 'dim');
   }
 
   iframe.addEventListener('load', () => {
-    hostReady = true;
+    ready = true;
     document.getElementById('conn-dot').className = 'conn-dot connected';
     document.getElementById('conn-label').textContent = 'Connected';
-    tLog('Host bridge established via iframe.', 'ok');
-    setTimeout(cmdPing, 400);
+    tLog('Host bridge connected.', 'ok');
+    setTimeout(cmdPing, 500);
+    setTimeout(cmdList, 800);
   });
 
   window.addEventListener('message', e => {
@@ -392,65 +313,67 @@
       document.getElementById('stat-files').textContent = d.fileCount;
       document.getElementById('stat-reqs').textContent = d.reqCount;
       document.getElementById('stat-ping').textContent = new Date().toLocaleTimeString();
-      tLog(`◎ PONG — files: ${d.fileCount}, reqs served: ${d.reqCount}`, 'ok');
+      tLog(`◎ PONG — ${d.fileCount} file(s) on host`, 'ok');
     }
 
     if (d.type === 'list') {
-      renderFileIndex(d.files);
-      tLog(`≡ LIST — ${d.files.length} file(s) on host`, 'ok');
+      renderIndex(d.files);
       document.getElementById('stat-files').textContent = d.files.length;
-    }
-
-    if (d.type === 'served') {
-      tLog(`↑ SERVED: ${d.name}`, 'ok');
+      tLog(`≡ LIST — ${d.files.length} file(s)`, 'ok');
     }
 
     if (d.type === 'removed') {
-      tLog(`✕ REMOVED: ${d.name}`, 'warn');
+      tLog(`✕ Removed: ${d.name}`, 'warn');
       cmdList();
     }
   });
 
-  function renderFileIndex(files) {
+  function renderIndex(files) {
     const container = document.getElementById('file-index');
-    container.querySelectorAll('.file-table-row:not(.header)').forEach(r => r.remove());
-    document.getElementById('file-index-empty').style.display = files.length ? 'none' : 'block';
+    container.querySelectorAll('.fi-row:not(.header)').forEach(r => r.remove());
+    const empty = document.getElementById('fi-empty');
 
-    files.forEach(name => {
-      const ext = name.split('.').pop().toUpperCase();
+    if (!files || files.length === 0) {
+      empty.style.display = 'block';
+      empty.textContent = 'No files on host yet. Upload via /host first.';
+      return;
+    }
+    empty.style.display = 'none';
+
+    files.forEach(f => {
+      const ext = (f.name.split('.').pop() || '?').toUpperCase();
+      const fmtSize = b => b < 1024 ? b+' B' : b < 1048576 ? (b/1024).toFixed(1)+' KB' : (b/1048576).toFixed(2)+' MB';
       const row = document.createElement('div');
-      row.className = 'file-table-row';
+      row.className = 'fi-row';
       row.innerHTML = `
-        <div class="file-name-cell"><span class="file-ext-badge">${ext}</span>${name}</div>
-        <div class="file-actions-cell">
-          <button class="tbl-btn tbl-serve" onclick="serveFile('${name}')">Serve</button>
-          <button class="tbl-btn tbl-del" onclick="removeFile('${name}')">Remove</button>
+        <div class="fi-name"><span class="fi-ext">${ext}</span>${f.name}</div>
+        <div class="fi-meta">${fmtSize(f.size || 0)}</div>
+        <div class="fi-meta">${f.expires || '14d'}</div>
+        <div class="fi-link"><a href="${f.link}" target="_blank">${f.link}</a></div>
+        <div class="fi-actions">
+          <button class="tbl-btn tbl-copy" onclick="copyLink('${f.link}')">Copy</button>
+          <button class="tbl-btn tbl-open" onclick="window.open('${f.link}','_blank')">Open</button>
+          <button class="tbl-btn tbl-del" onclick="removeNamed('${f.name}')">✕</button>
         </div>`;
       container.appendChild(row);
     });
   }
 
-  function serveFile(name) {
-    document.getElementById('target-file').value = name;
-    sendCmd({ command: 'serve', name });
+  function copyLink(link) {
+    navigator.clipboard.writeText(link).then(() => tLog(`Copied: ${link}`, 'ok'));
   }
 
-  function removeFile(name) {
+  function removeNamed(name) {
     document.getElementById('target-file').value = name;
-    sendCmd({ command: 'remove', name });
+    send({ command: 'remove', name });
   }
 
-  function cmdPing() { sendCmd({ command: 'ping' }); }
-  function cmdList() { sendCmd({ command: 'list' }); }
-  function cmdServeSelected() {
-    const name = document.getElementById('target-file').value.trim();
-    if (!name) { tLog('No target file set. Enter a filename in the sidebar.', 'warn'); return; }
-    sendCmd({ command: 'serve', name });
-  }
+  function cmdPing() { send({ command: 'ping' }); }
+  function cmdList() { send({ command: 'list' }); }
   function cmdRemoveSelected() {
     const name = document.getElementById('target-file').value.trim();
-    if (!name) { tLog('No target file set.', 'warn'); return; }
-    sendCmd({ command: 'remove', name });
+    if (!name) { tLog('Set a target filename in the sidebar first.', 'warn'); return; }
+    send({ command: 'remove', name });
   }
   function cmdClearLog() {
     document.getElementById('terminal').innerHTML = '';
@@ -463,16 +386,14 @@
     input.value = '';
     if (!raw) return;
     tLog(`❯ ${raw}`, 'dim');
-    const parts = raw.split(' ');
-    const cmd = parts[0].toLowerCase();
-    const arg = parts.slice(1).join(' ');
+    const [cmd, ...rest] = raw.split(' ');
+    const arg = rest.join(' ');
 
     if (cmd === 'ping') cmdPing();
     else if (cmd === 'list') cmdList();
-    else if (cmd === 'serve' && arg) serveFile(arg);
-    else if (cmd === 'remove' && arg) removeFile(arg);
+    else if (cmd === 'remove' && arg) removeNamed(arg);
     else if (cmd === 'clear') cmdClearLog();
-    else tLog(`Unknown command: "${cmd}". Try: ping, list, serve [file], remove [file]`, 'err');
+    else tLog(`Unknown: "${cmd}". Available: ping, list, remove [file], clear`, 'err');
   }
 </script>
 </body>
